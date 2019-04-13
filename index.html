@@ -21,7 +21,10 @@
 </head>
 
 <body>
-  <div id="fish-tank"></div>
+  <div id="fish-tank">
+    <p id="instructions">Press for more animals…</p>
+  </div>
+
   <!-- <script type="text/javascript" src="assets/js/scripts.js"></script> -->
   <style>
     body {
@@ -30,7 +33,9 @@
       width: 100vw;
       margin: 0 auto;
     }
-
+    #instructions{
+      text-align: center;
+    }
     #fish-tank {
 
       width: 100%;
@@ -81,7 +86,6 @@
         node.setAttribute('direction',selector > 0.5 ? 'right': 'left');
         if(selector < 0.5){
           node.style.transform = 'scaleX(-1)';
-
         }
 
         node.textContent = currAnimal;
@@ -90,6 +94,11 @@
         return node;
       }
         container.onclick = function (){
+          try{
+            document.querySelector('#instructions').remove();
+          }catch(e){
+
+          }
         container.prepend(maker());
 
         };
