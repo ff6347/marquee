@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Page Title</title>
+  <meta name="description" content="something">
+  <meta name="author" content="me">
+
+
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/styles.css">  -->
+
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="fish-tank"></div>
+  <!-- <script type="text/javascript" src="assets/js/scripts.js"></script> -->
+  <style>
+    body {
+      background-color: aquamarine;
+      height: 100vh;
+      width: 100vw;
+      margin: 0 auto;
+    }
+
+    #fish-tank {
+
+      width: 100%;
+      height: 100%;
+    }
+
+    /*.fish{}*/
+    #first-fish {
+      color: aqua;
+      padding-bottom: 1em;
+    }
+  </style>
+  <script>
+    let counter = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('#fish-tank');
+      const firstFish = document.createElement('marquee');
+      firstFish.textContent = '🐠';
+      //firstFish.style.transform = 'scaleX(-1)';
+      firstFish.id = 'first-fish';
+      const anotherFish = document.createElement('marquee');
+      anotherFish.textContent = '🐡';
+      anotherFish.style.transform = 'scaleX(-1)';
+      anotherFish.style.fontSize = '3em';
+      anotherFish.setAttribute('scrollamount', '12');
+      const crab = document.createElement('marquee');
+      crab.style.fontSize = '15em';
+      crab.style.fontWeight = '900';
+      crab.id = 'crab';
+      crab.textContent = '🦀';
+      crab.setAttribute('direction', 'right');
+      crab.setAttribute('scrollamount', '24');
+      const kraken = document.createElement('marquee');
+      kraken.textContent = '🐙';
+      kraken.style.fontSize = '5em';
+      kraken.setAttribute('scrollamount', 15);
+      //container.appendChild(firstFish);
+      //container.appendChild(crab);
+      //container.appendChild(anotherFish);
+      container.appendChild(kraken);
+
+
+      const maker = () => {
+        const node = document.createElement('marquee');
+        const animals = ['🐞','🦋','🐌','🐝','🐅','🐈','🦔','🐇','🦕','🦖'];
+        const currAnimal = animals[parseInt(Math.random() * (animals.length), 10)];
+        const selector = Math.random();
+        node.setAttribute('direction',selector > 0.5 ? 'right': 'left');
+        if(selector < 0.5){
+          node.style.transform = 'scaleX(-1)';
+
+        }
+
+        node.textContent = currAnimal;
+        node.style.fontSize = `${1 + Math.random() * 5}em`;
+        node.setAttribute('scrollamount', Math.random() * 24);
+        return node;
+      }
+        container.onclick = function (){
+        container.prepend(maker());
+
+        };
+
+    });
+  </script>
+</body>
+
+</html>
