@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "reload": "3.0.0"
+    "reload": "3.0.3"
   }
 }
